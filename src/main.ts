@@ -5,16 +5,16 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+  // Configuração do Swagger
   const config = new DocumentBuilder()
-    .setTitle('API de Sistema de Informação Ambulatorial')
-    .setDescription(
-      'Documentação das APIs do Sistema de Informação Ambulatorial',
-    )
+    .setTitle('Projeto de Saúde')
+    .setDescription('Documentação das APIs do Projeto de Saúde')
     .setVersion('1.0')
-    .addTag('sia')
     .build();
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, document);
+  SwaggerModule.setup('api', app, document, {
+    swaggerOptions: { docExpansion: 'none', filter: true },
+  });
 
   await app.listen(3000);
 }
