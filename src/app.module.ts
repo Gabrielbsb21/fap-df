@@ -3,6 +3,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { SiaModule } from './sia/sia.module';
+import { SihModule } from './sih/sia.module';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { SiaModule } from './sia/sia.module';
       }),
     }),
     SiaModule,
+    SihModule,
   ],
 })
 export class AppModule {}
