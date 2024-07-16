@@ -13,7 +13,7 @@ import { SiaService } from './sia.service';
 import { Sia } from './entities/sia.entity';
 import { ConfigService } from '@nestjs/config';
 
-@ApiTags('sia')
+@ApiTags('SIA')
 @Controller('sia')
 export class SiaController {
   constructor(
