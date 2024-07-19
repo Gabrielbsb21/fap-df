@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { SiaModule } from './sia/sia.module';
 import { SihModule } from './sih/sia.module';
+import { SinascModule } from './sinasc/sinasc.module';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { SihModule } from './sih/sia.module';
     }),
     SiaModule,
     SihModule,
+    SinascModule,
   ],
 })
 export class AppModule {}
