@@ -17,8 +17,10 @@ export class PainelProcedimentosService {
     mes?: number,
     regiaoSaude?: string,
     sexo?: string,
-  ): Promise<{ data: PainelProcedimentos[], total: number }> {
-    const query = this.painelProcedimentosRepository.createQueryBuilder('painel_procedimentos');
+  ): Promise<{ data: PainelProcedimentos[]; total: number }> {
+    const query = this.painelProcedimentosRepository.createQueryBuilder(
+      'painel_procedimentos',
+    );
 
     if (ano) {
       query.andWhere('painel_procedimentos.i_ano_compt = :ano', { ano });
@@ -29,7 +31,10 @@ export class PainelProcedimentosService {
     }
 
     if (regiaoSaude) {
-      query.andWhere('painel_procedimentos.i_desc_regiao_saude = :regiaoSaude', { regiaoSaude });
+      query.andWhere(
+        'painel_procedimentos.i_desc_regiao_saude = :regiaoSaude',
+        { regiaoSaude },
+      );
     }
 
     if (sexo) {

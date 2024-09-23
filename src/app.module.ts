@@ -5,6 +5,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { SiaModule } from './sia/sia.module';
 import { SihModule } from './sih/sia.module';
 import { SinascModule } from './sinasc/sinasc.module';
+import { SimModule } from './sim/sim.module';
+import { ObitosResidentesDFModule } from './obitosResidentesDF/obitos-residentes-df.module';
+import { PainelProcedimentosModule } from './painelProcedimentos/painel-procedimentos.module';
 
 @Module({
   imports: [
@@ -28,6 +31,9 @@ import { SinascModule } from './sinasc/sinasc.module';
     SiaModule,
     SihModule,
     SinascModule,
+    ObitosResidentesDFModule,
+    PainelProcedimentosModule,
+    SimModule,
   ],
 })
 export class AppModule {}

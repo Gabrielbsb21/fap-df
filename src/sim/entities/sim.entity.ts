@@ -1,6 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity()
+@Entity('')
 export class Sim {
   @PrimaryGeneratedColumn()
   id: number;
@@ -8,72 +8,58 @@ export class Sim {
   @Column()
   i_ano_obito: number;
 
-  @Column({ type: 'varchar', length: 255 })
-  i_cid_obito: string;
-
-  @Column({ type: 'varchar', length: 255 })
-  i_sexo: string;
+  @Column()
+  i_cid_cap: string;
 
   @Column()
-  i_cnes: number;
+  i_cid_capitulo: string;
 
-  @Column({ type: 'varchar', length: 255 })
+  @Column()
+  i_cid_obito: string;
+
+  @Column()
+  i_desc_cbo: string;
+
+  @Column()
+  i_desc_cid_obito: string;
+
+  @Column()
+  i_desc_local_obito: string;
+
+  @Column()
   i_desc_raca_cor: string;
 
-  @Column({ type: 'varchar', length: 255 })
-  i_idade: string;
+  @Column()
+  i_desc_radf_res: string;
 
-  @Column({ type: 'varchar', length: 255 })
-  i_ocupacao: string;
+  @Column()
+  i_desc_regiao_saude_estab: string;
 
-  @Column({ type: 'varchar', length: 255 })
-  i_grau_instrucao: string;
+  @Column()
+  i_desc_sigla_estab_cnes: string;
 
-  @Column({ type: 'varchar', length: 255 })
-  i_est_civil: string;
+  @Column()
+  i_desc_tipo_obito: string;
 
-  @Column({ type: 'varchar', length: 255 })
-  i_local_ocorrencia: string;
+  @Column()
+  i_desc_tipo_violencia: string;
 
-  @Column({ type: 'varchar', length: 255 })
-  i_assist_medica: string;
+  @Column()
+  i_desc_uf_res: string;
 
-  @Column({ type: 'varchar', length: 255 })
-  i_fonte_declaracao: string;
+  @Column()
+  i_faixa_etaria: string;
 
-  @Column({ type: 'varchar', length: 255 })
-  i_circunstancia: string;
+  // Permitir valores nulos para i_idade_anos
+  @Column('float', { nullable: true })
+  i_idade_anos: number;
 
-  @Column({ type: 'varchar', length: 255 })
-  i_acid_transito: string;
+  @Column()
+  i_mes_obito: number;
 
-  @Column({ type: 'varchar', length: 255 })
-  i_violencia: string;
+  @Column()
+  i_qtd_obitos: number;
 
-  @Column({ type: 'varchar', length: 255 })
-  i_local_acidente: string;
-
-  @Column({ type: 'varchar', length: 255 })
-  i_tipo_local: string;
-
-  @Column({ type: 'varchar', length: 255 })
-  i_origem: string;
-
-  @Column({ type: 'varchar', length: 255 })
-  i_investigacao: string;
-
-  @Column({ type: 'varchar', length: 255 })
-  i_exame_cadaverico: string;
-
-  @Column({ type: 'varchar', length: 255 })
-  i_nexo_causal: string;
-
-  @Column({ type: 'varchar', length: 255 })
-  i_comunicacao_obito: string;
-
-  @Column({ type: 'varchar', length: 255 })
-  i_causas_associadas: string;
-
-  @Column({ type: 'varchar', length: 255 })
-  i_codificacao_cid: string;
+  @Column()
+  i_sexo: string;
 }

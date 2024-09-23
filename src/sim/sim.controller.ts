@@ -35,14 +35,14 @@ export class SimController {
   @ApiQuery({ name: 'ano', required: false, type: Number, example: 2023 })
   @ApiQuery({ name: 'cid', required: false, type: String, example: 'A00' })
   @ApiQuery({ name: 'sexo', required: false, type: String, example: 'M' })
-  @ApiQuery({ name: 'cnes', required: false, type: Number, example: 12345 })
+  @ApiQuery({ name: 'cnes', required: false, type: String, example: 'HMIB' }) // Corrigido para string
   async findAll(
     @Query('page') page = 1,
     @Query('limit') limit = 10,
     @Query('ano') ano?: number,
     @Query('cid') cid?: string,
     @Query('sexo') sexo?: string,
-    @Query('cnes') cnes?: number,
+    @Query('cnes') cnes?: string, // Mudado para string
   ): Promise<any> {
     if (page < 1) {
       throw new BadRequestException('O número da página deve ser maior que 0.');

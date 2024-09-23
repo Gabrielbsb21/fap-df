@@ -1,4 +1,4 @@
-import {Module} from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { PainelProcedimentosService } from './painel-procedimentos.service';
 import { PainelProcedimentosController } from './painel-procedimentos.controller';

@@ -16,7 +16,7 @@ export class SimService {
     ano?: number,
     cid?: string,
     sexo?: string,
-    cnes?: number,
+    cnes?: string, // Mudado para string
   ): Promise<{ data: Sim[]; total: number }> {
     const query = this.simRepository.createQueryBuilder('sim');
 
@@ -33,7 +33,7 @@ export class SimService {
     }
 
     if (cnes) {
-      query.andWhere('sim.i_cnes = :cnes', { cnes });
+      query.andWhere('sim.i_desc_sigla_estab_cnes = :cnes', { cnes });
     }
 
     const [data, total] = await query

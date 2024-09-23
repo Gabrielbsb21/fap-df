@@ -23,14 +23,30 @@ export class PainelProcedimentosController {
 
   @Get()
   @HttpCode(200)
-  @ApiOperation({ summary: 'Obter todas as entradas do painel de procedimentos com paginação e filtros' })
-  @ApiResponse({ status: 200, description: 'Lista de todas as entradas do painel de procedimentos.' })
+  @ApiOperation({
+    summary:
+      'Obter todas as entradas do painel de procedimentos com paginação e filtros',
+  })
+  @ApiResponse({
+    status: 200,
+    description: 'Lista de todas as entradas do painel de procedimentos.',
+  })
   @ApiQuery({ name: 'page', required: false, type: Number, example: 1 })
   @ApiQuery({ name: 'limit', required: false, type: Number, example: 10 })
   @ApiQuery({ name: 'ano', required: false, type: Number, example: 2023 })
   @ApiQuery({ name: 'mes', required: false, type: Number, example: 1 })
-  @ApiQuery({ name: 'regiaoSaude', required: false, type: String, example: 'Região Central' })
-  @ApiQuery({ name: 'sexo', required: false, type: String, example: 'Feminino' })
+  @ApiQuery({
+    name: 'regiaoSaude',
+    required: false,
+    type: String,
+    example: 'Região Central',
+  })
+  @ApiQuery({
+    name: 'sexo',
+    required: false,
+    type: String,
+    example: 'Feminino',
+  })
   async findAll(
     @Query('page') page = 1,
     @Query('limit') limit = 10,
@@ -50,7 +66,14 @@ export class PainelProcedimentosController {
     const maxLimit = this.configService.get<number>('PAGINATION_LIMIT', 10);
     const take = Math.min(limit, maxLimit);
 
-    const { data, total } = await this.painelProcedimentosService.findAll(page, take, ano, mes, regiaoSaude, sexo);
+    const { data, total } = await this.painelProcedimentosService.findAll(
+      page,
+      take,
+      ano,
+      mes,
+      regiaoSaude,
+      sexo,
+    );
     const totalPages = Math.ceil(total / take);
 
     return {
@@ -66,11 +89,18 @@ export class PainelProcedimentosController {
   }
 
   @Get(':id')
-  @ApiOperation({ summary: 'Obter uma entrada do painel de procedimentos pelo ID' })
-  @ApiResponse({ status: 200, description: 'A entrada do painel de procedimentos.' })
+  @ApiOperation({
+    summary: 'Obter uma entrada do painel de procedimentos pelo ID',
+  })
+  @ApiResponse({
+    status: 200,
+    description: 'A entrada do painel de procedimentos.',
+  })
   @ApiResponse({ status: 404, description: 'Entrada não encontrada.' })
   async findOne(@Param('id') id: string): Promise<PainelProcedimentos> {
-    const painelProcedimentos = await this.painelProcedimentosService.findOne(parseInt(id, 10));
+    const painelProcedimentos = await this.painelProcedimentosService.findOne(
+      parseInt(id, 10),
+    );
     if (!painelProcedimentos) {
       throw new NotFoundException('Entrada não encontrada.');
     }
